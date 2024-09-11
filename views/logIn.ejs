@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Legonius</title>
+    <%- include("./partial/styles.ejs") %>
+    <style>
+      header {
+        height: calc(100vh - 100px);
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <%- include("./partial/nav.ejs") %>
+    <div class="log">
+      <h6>Log In</h6>
+      <Form action="/sign-in" method="post">
+        <label for="userName">Username</label>
+        <input type="text" name="userName" placeholder="username" required />
+        <label for="password">Password</label>
+        <input
+          type="password"
+          name="password"
+          placeholder="password"
+          required
+        />
+        <input type="submit" />
+      </Form>
+      <p>Don't have an account?</p>
+      <p>Create Account <a href="/sign-up">Sign up</a> here.</p>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Legonius</title>
+    <%- include("./partial/styles.ejs") %>
+    <style>
+      header {
+        height: calc(100vh - 100px);
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <%- include("./partial/nav.ejs") %>
+    <div class="view-Blog">
+      <div class="blog">
+        <h3><%= blog.title %></h3>
+        <div class="blg-img">
+          <img src="../uploads/<%= blog.imageUrl %>" />
+        </div>
+        <p><%= blog.body %></p>
+        <strong>Author: <%= blog.createdBy.userName %></strong><br />
+        <div class="com-sect">
+          <div class="comments">
+            <img src="/user-imgs/avatar.jpeg" />
+            <p>this blog is sooo gooooood</p>
+          </div>
+          <% if (locals.comments.length >0) { %> <%
+          locals.comments.forEach(comment => { %>
+          <div class="comments">
+            <img src="/user-imgs/<%= comment.createdBy.avatar %>" />
+            <p><%= comment.text %></p>
+          </div>
+          <% }) %> <% } %> <% if (user) { %>
+          <form action="/blog/<%= blog._id %>" method="post">
+            <input type="text" name="comment" placeholder="Write Comments" />
+            <button type="submit">Add</button>
+          </form>
+          <% } else { %>
+          <span> <a href="/log-in">Log in</a>For comment </span>
+          <% } %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

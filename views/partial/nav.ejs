@@ -1,0 +1,19 @@
+<nav>
+  <a href="/"> <h1>Legonius!</h1></a>
+  <div id="nav-li">
+    <ul>
+      <li><a href="/blog">Blogs</a></li>
+      <li>Gallery</li>
+      <li>About</li>
+      <li>Contact Us</li>
+    </ul>
+  </div>
+  <div>
+    <% if(locals.user){%>
+    <img src="/user-imgs/<%= locals.user.avatar %>" />
+    <a href="/log-out">Log out</a>
+    <%}else{%>
+    <a href="/log-in">Log in</a>
+    <%} %>
+  </div>
+</nav>

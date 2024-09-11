@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Legonius</title>
+    <%- include("./partial/styles.ejs") %>
+    <style>
+      header {
+        height: calc(100vh - 100px);
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <%- include("./partial/nav.ejs") %>
+    <header>
+      <h1>This is Landing Page</h1>
+      <% if (user) { %>
+      <h2>Welcome <%= user.userName %></h2>
+      <a href="/blog/add-blog">Create Your Blog</a>
+      <% } else{ %>
+      <h2>Please Login to Upload Blogs</h2>
+      <% } %>
+    </header>
+  </body>
+</html>

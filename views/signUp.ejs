@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Legonius</title>
+    <%- include("./partial/styles.ejs") %>
+    <style>
+      header {
+        height: calc(100vh - 100px);
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <%- include("./partial/nav.ejs") %>
+    <div class="log">
+      <h6>Sign Up</h6>
+      <Form action="/sign-up" method="post" enctype="multipart/form-data">
+        <label for="userName">Username</label>
+        <input type="text" name="userName" placeholder="username" required />
+
+        <label for="email">Email</label>
+        <input
+          type="email"
+          name="email"
+          placeholder="example@email.com"
+          required
+        />
+
+        <label for="password">Password</label>
+        <input
+          type="password"
+          name="password"
+          placeholder="password"
+          required
+        />
+
+        <label for="avatar">Upload Profile</label>
+        <input type="file" name="avatar" />
+        <input type="submit" />
+      </Form>
+    </div>
+  </body>
+</html>
